@@ -1,0 +1,2 @@
+class ChatSpaceController < ApplicationController
+end
