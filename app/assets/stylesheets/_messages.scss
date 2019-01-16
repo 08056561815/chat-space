@@ -14,13 +14,13 @@ ol, ul {
 
 .notice {
     background-color: #38AEF0;
-    color: #fff;
+    color: $white;
     text-align: center;
 }
 
 .side-bar {
     box-sizing: border-box;
-    color: #fff;
+    color: $white;
     width: 300px;
     .header {
       background-color: #253141;
@@ -38,7 +38,7 @@ ol, ul {
             .list {
               display: inline-block;
             .icon {
-              color: #fff;
+              color: $white;
               font-size: 16px;
             }
             }
