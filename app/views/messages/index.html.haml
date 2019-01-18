@@ -43,6 +43,8 @@
   .form
     .js-form(action="" method="post")
       %input.js-form__message(placeholder="type a message" type="text")
-      .js-form__icon
-        %i.far.fa-image
+      .js-form__mask
+        %label.js-form__mask__image(for="message_image")
+          %i.far.fa-image
+            %input.hidden.js-file(type="file" id="message_image" multiple)
       %input.form__submit(type="submit" name="commit" value="Send")

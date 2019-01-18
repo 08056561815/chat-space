@@ -143,23 +143,30 @@ input, textarea, select {
     padding: 20px 50px 20px 40px;
     .js-form{
       &__message {
-      border: none;
-      box-sizing: border-box;
-      float: left;
-      height: 50px;
-      padding: 0 10px;
-      width: calc(100% - 150px);
+        border: none;
+        box-sizing: border-box;
+        float: left;
+        height: 50px;
+        padding: 0 10px;
+        width: calc(100% - 150px);
       }
-      &__icon {
-      background-color: $white;
-      float: left;
-      height: 50px;
-      padding-right: 10px;
+      &__mask {
+        background-color: $white;
+        float: left;
+        height: 50px;
+        padding-right: 10px;
+        &__image {
+          font-size: 20px;
+          line-height: 50px;
+          #message_image{
+            display: none;
+          }
+        }
       }
-      .far {
-      font-size: 20px;
-      line-height: 50px;
-      }
+      // .far {
+      // font-size: 20px;
+      // line-height: 50px;
+      // }
     }
     &__submit {
       background-color: $skyblue;
