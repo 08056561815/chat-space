@@ -38,3 +38,9 @@
         .upper-message__date 2019/01/16 06:16:55
       .lower-message
         %p.lower-message__content Good bye world!
+  .form
+    .js-form(action="" method="post")
+      %input.js-form__message(placeholder="type a message" type="text")
+      .js-form__icon
+        %i.far.fa-image
+      %input.form__submit(type="submit" name="commit" value="Send")
