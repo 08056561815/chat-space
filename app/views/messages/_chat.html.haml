@@ -1,0 +1,32 @@
+.chat
+  .header
+    .left-header
+      .left-header__title
+        sample
+      %ul.left-header__members
+        Member：
+        %li.member
+          seo neko
+    .right-header
+      %a.right-header__button Edit
+  .messages
+    .message
+      .upper-message
+        .upper-message__user-name SEO
+        .upper-message__date 2016/09/21 06:16:55
+      .lower-message
+        %p.lower-message__content Hello world!
+    .message
+      .upper-message
+        .upper-message__user-name neko
+        .upper-message__date 2019/01/16 06:16:55
+      .lower-message
+        %p.lower-message__content Good bye world!
+  .form
+    .js-form(action="" method="post")
+      %input.js-form__message(placeholder="type a message" type="text")
+      .js-form__mask
+        %label.js-form__mask__image(for="message_image")
+          %i.far.fa-image
+            %input.hidden.js-file(type="file" id="message_image" multiple)
+      %input.form__submit(type="submit" name="commit" value="Send")
