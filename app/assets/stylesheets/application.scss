@@ -1,12 +1,10 @@
 @import "font-awesome";
 
-@import "./reset";
-@import "./variable";
-@import "./color";
+@import "config/reset";
+@import "config/variable";
+@import "config/color";
 
-@import "./notifications";
-
-@import "./chat";
-@import "./side_bar";
-
-@import "./user";
+@import "modules/notifications";
+@import "modules/chat";
+@import "modules/side_bar";
+@import "modules/user";
