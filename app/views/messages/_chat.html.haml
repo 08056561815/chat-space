@@ -8,7 +8,9 @@
         %li.member
           seo neko
     .right-header
-      %a.right-header__button Edit
+      .right-header__button
+        = link_to edit_group_path(params[:group_id]) do
+          Edit
   .messages
     .message
       .upper-message
