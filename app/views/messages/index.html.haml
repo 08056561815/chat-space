@@ -1,2 +1,6 @@
 = render "shared/side_bar"
-= render "chat", { group: @group }
+.chat
+  = render "header", { group: @group }
+  .messages
+    = render @messages
+  = render "form"
