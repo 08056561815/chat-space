@@ -1,4 +1,16 @@
 @import "font-awesome";
-@import "./reset";
-@import "./variable";
-@import "./messages";
+
+@import "config/reset";
+@import "config/variable";
+@import "config/color";
+@import "config/size";
+
+@import "modules/group";
+@import "modules/notifications";
+@import "modules/side_bar";
+@import "modules/user";
+
+@import "modules/index";
+@import "modules/header";
+@import "modules/form";
+@import "modules/message";
