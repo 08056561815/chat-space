@@ -1,5 +1,5 @@
 $(function(){
-  function buildHTML_content(comment){
+  function buildHTML(comment){
     var html = `<div class="message">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
@@ -8,8 +8,11 @@ $(function(){
                     <div class="upper-message__date">
                       ${ comment.created_at }
                     </div>
-                  </div>
-                  <div class="lower-meesage">
+                  </div>`
+    return html;
+  }
+  function buildContent(comment){
+    var html =   `<div class="lower-meesage">
                     <p class="lower-message__content">
                       ${ comment.content }
                     </p>
@@ -17,17 +20,8 @@ $(function(){
                 </div>`
     return html;
   }
-  function buildHTML_image(comment){
-    var html = `<div class="message">
-                  <div class="upper-message">
-                    <div class="upper-message__user-name">
-                      ${ comment.user_name }
-                    </div>
-                    <div class="upper-message__date">
-                      ${ comment.created_at }
-                    </div>
-                  </div>
-                  <div class="lower-meesage">
+  function buildImage(comment){
+    var html =   `<div class="lower-meesage">
                     <img class="lower-message__image" src= ${ comment.image } >
                   </div>
                 </div>`
@@ -46,20 +40,25 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      if(data.content !== "" ){
-      var html = buildHTML_content(data);
+      if(data.content !== "" && data.image !== null){
+      var html = buildHTML(data) + buildContent(data) + buildImage(data);
+      console.log(data)
+      }else if(data.content !== ""){
+      var html = buildHTML(data) + buildContent(data);
+      console.log(2)
       }else{
-      var html = buildHTML_image(data);
+      var html = buildHTML(data) + buildImage(data);
+      console.log(3)
       }
       $('.messages').append(html)
+      $('.form__message').val('')
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 2000);
     })
     .fail(function(){
       alert('error');
     })
     .always(function(){
-      $('.form__message').val('')
       $('.form__submit').prop('disabled', false);
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 2000);
     })
   })
 })
