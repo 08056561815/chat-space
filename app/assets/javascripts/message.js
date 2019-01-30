@@ -42,16 +42,13 @@ $(function(){
     .done(function(data){
       if(data.content !== "" && data.image !== null){
       var html = buildHTML(data) + buildContent(data) + buildImage(data);
-      console.log(data)
       }else if(data.content !== ""){
       var html = buildHTML(data) + buildContent(data);
-      console.log(2)
       }else{
       var html = buildHTML(data) + buildImage(data);
-      console.log(3)
       }
       $('.messages').append(html)
-      $('.form__message').val('')
+      $('.js-form')[0].reset()
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 2000);
     })
     .fail(function(){
