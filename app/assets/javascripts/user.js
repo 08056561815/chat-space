@@ -48,8 +48,6 @@ $(document).on('turbolinks:load', function() {
   })
 
   $("#chat-group-users").on("click",".user-search-remove", function() {
-    // var id = $(this).data("user-id");
-    // var name = $(this).data("user-name");
     $(this).parent().remove();
   })
 });
