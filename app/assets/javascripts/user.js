@@ -41,8 +41,8 @@ $(document).on('turbolinks:load', function() {
   });
 
   $("#user-search-result").on("click",".user-search-add", function() {
-    var id = $(this).data("user-id");
-    var name = $(this).data("user-name");
+    var id = $(this).data("userId");
+    var name = $(this).data("userName");
     $(this).parent().remove();
     appendGroupUser(id, name)
   })
