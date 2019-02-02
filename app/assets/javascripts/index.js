@@ -1,15 +1,10 @@
 $(document).on('turbolinks:load', function(){
-  function buildMESSAGE(comment) {
-    var message_content = ""
-    if (comment.content){
-      var message_content = `<p class="lower-message__content">
-                              ${ comment.content }
-                            </p>`
-    };
 
+  function buildMESSAGE(comment) {
     var message_image = ""
     if (comment.image){
-      var message_image = `<img class="lower-message__image" src= ${ comment.image } >`
+      var message_image =
+      `<img class="lower-message__image" src= ${ comment.image } >`
     };
 
     var html = `<div class="message" data-id= ${ comment.id }>
@@ -22,7 +17,9 @@ $(document).on('turbolinks:load', function(){
                     </div>
                   </div>
                   <div class="lower-meesage">
-                    ${message_content}
+                    <p class="lower-message__content">
+                      ${ comment.content }
+                    </p>
                     ${message_image}
                   </div>
                 </div>`
