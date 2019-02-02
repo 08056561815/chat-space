@@ -2,14 +2,14 @@ $(document).on('turbolinks:load', function(){
   function buildMESSAGE(comment) {
     var message_content = ""
     if (comment.content){
-    var message_content = `<p class="lower-message__content">
-                            ${ comment.content }
-                          </p>`
+      var message_content = `<p class="lower-message__content">
+                              ${ comment.content }
+                            </p>`
     };
 
     var message_image = ""
     if (comment.image){
-    var message_image = `<img class="lower-message__image" src= ${ comment.image } >`
+      var message_image = `<img class="lower-message__image" src= ${ comment.image } >`
     };
 
     var html = `<div class="message" data-id= ${ comment.id }>
@@ -27,6 +27,7 @@ $(document).on('turbolinks:load', function(){
                   </div>
                 </div>`
     $('.messages').append(html);
+    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 3000);
   }
 
 
@@ -37,7 +38,6 @@ $(document).on('turbolinks:load', function(){
       var message_id = 0
     }
 
-    console.log(message_id)
     $.ajax({
       url: location.href,
       type: 'GET',
@@ -48,11 +48,9 @@ $(document).on('turbolinks:load', function(){
     })
 
     .done(function(data){
-    console.log(data)
       $.each(data, function(i, data){
         buildMESSAGE(data);
       });
-    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 3000);
     })
     .fail(function(){
       alert('error');
@@ -60,7 +58,7 @@ $(document).on('turbolinks:load', function(){
   }
 
   var timer = setInterval(function(){
-  if (document.URL.match(/messages/)) {
+  if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
     update();
   } else {
     clearInterval(timer);
