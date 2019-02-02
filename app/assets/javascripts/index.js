@@ -1,6 +1,5 @@
 $(document).on('turbolinks:load', function(){
-
-  function buildHTML(comment){
+  function buildMESSAGE(comment) {
     var message_content = ""
     if (comment.content){
     var message_content = `<p class="lower-message__content">
@@ -27,32 +26,43 @@ $(document).on('turbolinks:load', function(){
                     ${message_image}
                   </div>
                 </div>`
-    return html;
+    $('.messages').append(html);
   }
 
-  $('.js-form').on('submit', function(e){
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action')
+
+  function update(){
+    if($('.message')[0]){
+      var message_id = $('.message:last').data('id');
+    } else {
+      var message_id = 0
+    }
+
+    console.log(message_id)
     $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false,
+      url: location.href,
+      type: 'GET',
+      data: {
+        message: { id: message_id }
+      },
+      dataType: 'json'
     })
+
     .done(function(data){
-      var html =buildHTML(data)
-      $('.messages').append(html)
-      $('.js-form')[0].reset()
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 2000);
+    console.log(data)
+      $.each(data, function(i, data){
+        buildMESSAGE(data);
+      });
+    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 3000);
     })
     .fail(function(){
       alert('error');
     })
-    .always(function(){
-      $('.form__submit').prop('disabled', false);
-    })
-  })
-})
+  }
+
+  var timer = setInterval(function(){
+  if (document.URL.match(/messages/)) {
+    update();
+  } else {
+    clearInterval(timer);
+  }}, 5000);
+});
