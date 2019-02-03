@@ -27,7 +27,6 @@ $(document).on('turbolinks:load', function(){
     $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 3000);
   }
 
-
   function update(){
     if($('.message')[0]){
       var message_id = $('.message:last').data('id');
