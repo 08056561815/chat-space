@@ -65,7 +65,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave'
-gem "devise"
+ gem "devise"
 gem 'erb2haml'
 gem 'fog-aws'
 gem "font-awesome-rails"
