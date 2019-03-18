@@ -73,3 +73,5 @@ gem 'haml-rails'
 gem 'mini_magick'
 gem "pry-rails"
 gem 'rubocop', require: false
+
+テストだよ。
